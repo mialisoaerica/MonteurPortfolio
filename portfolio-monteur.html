@@ -103,7 +103,6 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { width: 100%; }
 
-  /* HERO */
   #hero {
     position: relative;
     z-index: 1;
@@ -220,8 +219,6 @@
     background: var(--muted);
     animation: scrollLine 2s 2s infinite;
   }
-
-  /* STATS HERO */
   .hero-stats {
     position: absolute;
     right: 3rem;
@@ -246,8 +243,6 @@
     text-transform: uppercase;
     margin-top: 4px;
   }
-
-  /* SECTION */
   section {
     position: relative;
     z-index: 1;
@@ -269,8 +264,6 @@
     width: 30px; height: 1px;
     background: var(--accent);
   }
-
-  /* ABOUT / SKILLS */
   #about {
     border-top: 1px solid var(--border);
     display: grid;
@@ -331,7 +324,6 @@
     text-align: right;
   }
 
-  /* PROJECTS */
   #projects { border-top: 1px solid var(--border); }
   .projects-grid {
     display: grid;
@@ -415,8 +407,6 @@
     transition: opacity 0.3s, transform 0.3s;
   }
   .project-card:hover .project-arrow { opacity: 1; transform: translate(0,0); }
-
-  /* REEL / VIDEO */
   #reel {
     border-top: 1px solid var(--border);
     text-align: center;
@@ -492,8 +482,6 @@
     color: rgba(232,255,71,0.4);
     letter-spacing: 0.08em;
   }
-
-  /* CONTACT */
   #contact {
     border-top: 1px solid var(--border);
     text-align: center;
@@ -536,8 +524,6 @@
     border-color: rgba(232,255,71,0.4);
     background: rgba(232,255,71,0.04);
   }
-
-  /* FOOTER */
   footer {
     position: relative;
     z-index: 1;
@@ -553,8 +539,6 @@
     color: var(--muted);
     letter-spacing: 0.08em;
   }
-
-  /* KEYFRAMES */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -573,8 +557,6 @@
     51%  { transform: scaleX(0); transform-origin: right; }
     100% { transform: scaleX(1); transform-origin: right; }
   }
-
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1.2rem 1.5rem; }
     #hero { padding: 0 1.5rem; padding-top: 6rem; }
@@ -592,7 +574,6 @@
 <div class="cursor-ring" id="cursorRing"></div>
 <canvas id="canvas"></canvas>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">// MON_PORTFOLIO.exe</div>
   <ul class="nav-links">
@@ -603,7 +584,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <p class="hero-eyebrow">▶ Monteur vidéo &amp; motion designer</p>
   <h1 class="hero-title">
@@ -638,7 +618,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-text">
     <div class="section-label">01 — À propos</div>
@@ -681,7 +660,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">02 — Projets</div>
   <div class="projects-grid">
@@ -760,7 +738,6 @@
   </div>
 </section>
 
-<!-- REEL -->
 <section id="reel">
   <div class="section-label">03 — Showreel</div>
   <div class="reel-container">
@@ -778,7 +755,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-label" style="justify-content:center">04 — Contact</div>
   <h2>Travaillons<br><span>ensemble.</span></h2>
@@ -793,21 +769,19 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>Mialisoa — Monteur vidéo</span>
   <span>© 2026 — Fait avec du café et de la passion</span>
 </footer>
 
 <script>
-/* CURSEUR */
+
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
 (function animRing(){ rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
 
-/* CANVAS PARTICULES */
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -854,7 +828,6 @@ function drawParticles(){
 }
 drawParticles();
 
-/* TYPING ANIMATION */
 const phrases = [
   'monteur_video freelance',
   'outils: premiere_pro after_effects davinci',
@@ -877,7 +850,6 @@ function type(){
 }
 setTimeout(type, 1800);
 
-/* COUNTER ANIMATION */
 function animCounter(el, target, duration){
   let start = null;
   function step(ts){
@@ -894,7 +866,6 @@ setTimeout(() => {
   animCounter(document.getElementById('stat3'), 5, 1000);
 }, 1600);
 
-/* SKILL BARS INTERSECTION */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
@@ -906,7 +877,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.skills-grid').forEach(el => observer.observe(el));
 
-/* REEL TIMECODE */
+
 const tc = document.querySelector('.reel-timecode');
 if(tc){
   let f = 0;
